@@ -1,0 +1,30 @@
+.my-container{
+    padding: 20px 50px 20px 30px;
+}
+.header-page{
+    font-size: 22px;
+    padding-bottom: 10px;
+    border-width: 1px;
+    border-color: rgb(180, 180, 180);
+    border-bottom-style: solid; 
+}
+.body-page{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 10px;     
+    box-shadow: 0 0 5px 0px rgb(182, 182, 182);
+    padding: 20px;
+}
+.button-add-remove{
+    text-align: right;
+}
+
+@media (max-width : 600px){
+    .my-container{
+        padding-left: 0px;
+        padding-right: 20px;
+    }
+}

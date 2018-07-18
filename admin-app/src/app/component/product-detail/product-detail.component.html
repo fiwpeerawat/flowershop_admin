@@ -1,0 +1,154 @@
+<div >
+  <div class="my-container">
+    <div class="header-page">
+      รายระเอียดสินค้า
+    </div>
+
+    <div class="body-page" *ngFor="let item of product">
+      <div class="row" style=" margin-bottom: 5px;">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+          รหัสสินค้า :
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+          <a >{{item.PID}}</a>
+          <input type="text" class="form-control col-detail" >
+        </div>
+      </div>
+      <div class="row" style="  margin-bottom: 5px;">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+          ชื่อสินค้า :
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+          <a (click)="Productclick(0)" #detailText> {{item.NAME}} </a>
+          <input type="text" class="form-control col-detail" #detailInput [(ngModel)]="item.NAME"  >
+        </div>
+      </div>
+      <div class="row" style="  margin-bottom: 5px;">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+          รายละเอียดสินค้า :
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9" style="word-wrap:break-word;">
+          <a (click)="Productclick(1)" #detailText>
+              {{item.DETAIL}}
+          </a>
+          <textarea  rows="3" class="form-control col-detail" [(ngModel)]="item.DETAIL" #detailInput></textarea>
+        </div>
+      </div>
+
+      <div class="row" style=" margin-bottom: 5px;">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+          ราคา :
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+          <a (click)="Productclick(2)" #detailText> {{item.PRICE}} </a>
+          <input type="text" class="form-control col-detail" [(ngModel)]="item.PRICE" #detailInput>
+        </div>
+      </div>
+      <div class="row" style=" margin-bottom: 5px;">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+            กลุ่มสินค้า :
+          </div>
+          <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+            <a (click)="Productclick(3)" #detailText>{{item.GROUP}} </a>            
+            <select class="form-control col-detail" [(ngModel)]="item.GROUP"  #detailInput>
+                <option *ngFor="let group of groupList">{{group.NAME}}</option>
+                
+              </select>
+          </div>
+        </div>
+      <div class="row" style="  margin-bottom: 5px;">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+          วันที่ลงสินค้า :
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+            {{item.DATE}}
+        </div>
+
+      </div>
+      <div class="row" style="  margin-bottom: 5px;">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+          เวลาลงสินค้า :
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+            {{item.TIME}}
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 10px;">
+        <div class="col" style="text-align: center;">
+          ภาพสินค้า
+        </div>
+      </div>
+      
+
+      <div class="row">
+        <div *ngFor="let img of item.URL; let i = index"   class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-img">
+          <div style="margin-bottom: 10px;">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" style="margin-right: 5px;" #checkbox (click)="checkboxClick(i)">ภาพหลัก</label>
+            </div>
+            <img src={{img.URL}} class="img-fluid"
+              alt="Responsive image">
+          </div>
+
+        </div>
+
+      
+
+
+
+
+      </div>
+      <div style="text-align: right;">
+        <button type="button" class="btn btn-secondary"  data-toggle="modal" data-target="#ModelConfirmeChange">
+          บันทึกการแก้ไข
+        </button>
+      </div>
+
+      
+      <div class="modal fade" id="ModelConfirmeChange" tabindex="-1" role="dialog" aria-labelledby="ModelConfirmeChange" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">ตรวจสอบ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div>
+                 <span style="color: red"  > รหัสสินค้า :</span> {{item.PID}}
+                </div>
+                <div class="show-detail">
+                    <span style="color: red"> ชื่อสินค้า : </span> {{item.NAME}}
+                </div>
+                <div class="show-detail">
+                    <span style="color: red"> รายระเอียดสินค้า : </span> {{item.DETAIL}}
+                </div>
+                <div>
+                    <span style="color: red"> ราคาสินค้า : </span> {{item.PRICE}}
+                </div>
+                <div>
+                    <span style="color: red"> กลุ่มสินค้า : </span> {{item.GROUP}}
+                </div>
+                <div class="show-detail">
+                    <span style="color: red"> ภาพหลักสินค้า : </span> 
+                    <img src={{item.PROFILE_IMG.URL}} class="img-fluid" alt="Responsive image">
+                </div>
+    
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                <button type="button" class="btn btn-primary" style="width: 100px;"  (click)='confirmChangeProduct()' >ยืนยัน</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div *ngIf="auth.authenticated" class="sidenav-container" #sidenavcontainer (click)="sidenavcontainerClick()">
+</div>
+<div *ngIf="auth.authenticated" class="sidenav" #sidenav>
+    <button routerLink="" class="dropdown-btn" [ngClass]="{ active : select_menue =='home' }" (click)="menueClick('home')">หน้าแรก
+    </button>
+    <button class="dropdown-btn" [ngClass]="{ active : select_menue=='product' }" (click)="menueClick('product')">สินค้า
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container" [ngClass]="{ dropdownactive : select_menue=='product' }">
+        <a routerLink="AddProduct">เพิ่มสินค้า</a>
+        <a routerLink="RemoveProduct">ลบสินค้า</a>
+        <a routerLink="AddRemoveGroup">เพิ่มลบกลุ่มสินค้า</a>
+    </div>
+
+    <button class="dropdown-btn" [ngClass]="{ active : select_menue =='order' }" (click)="menueClick('order')">รายการสินค้าของลูกค้า
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container" [ngClass]="{ dropdownactive : select_menue =='order' }">
+        <a routerLink="AllListOrder">รายการสินค้าทั้งหมด</a>
+        <a routerLink="OrderNotPay">รายการสินค้ายังไม่ได้ชำระเงิน</a>
+        <a routerLink="ApproveOrder">อนุมัติการชำระเงิน</a>
+    </div>
+    <button class="dropdown-btn" [ngClass]="{ active : select_menue =='dateOder' }" (click)="menueClick('dateOder')">ตรวจสอบวันส่งสินค้า
+    </button>
+    <button *ngIf="auth.authenticated"   class="dropdown-btn" [ngClass]="{ active : select_menue =='singout' }" (click)="menueClick('singout')" (click)="singout()">ออกจากระบบ
+    </button>
+
+</div>
+
+
+<div class="main">
+
+    <nav *ngIf="auth.authenticated" class="navbar navbar-expand-lg navbar-light  fixed-top  " style="text-align: left;">
+        <button class="navbar-toggler" type="button" style="margin-right: 20px;">
+            <span class="navbar-toggler-icon" (click)=clickBtntoggler()></span>
+        </button>
+        <div style="flex-grow: 1;">
+            <a class="navbar-brand" style="color: white;">Flower</a>
+        </div>
+    </nav>
+
+
+    <router-outlet></router-outlet>
+
+
+
+</div>

@@ -1,0 +1,33 @@
+<div class="my-container">
+
+    <div class="header-page">
+      อนุมัติการชำระเงิน
+    </div>
+  
+    <div class="body-page">
+      <div class="serach-bar">
+        <i class="fa fa-search" style="font-size: 24px; cursor: pointer; margin-right: 10px"></i>
+        <input type="text" class="serach-input" placeholder="ค้นหารายการสั่งซื้อสินค้า">
+      </div>
+  
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">หมายเลขรายการสินค้า</th>
+            <th scope="col">ชื่อลูกค้า</th>          
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of list_order ; let i = index "   (click)='clickItem(i)'>
+            <th scope="row">{{order.Order_number}}</th>
+            <td>{{order.USERNAME}}</td>         
+            <td class="approve">อนุมัติ</td>
+          </tr>
+        
+  
+      </table>
+    </div>
+  
+  
+  </div>

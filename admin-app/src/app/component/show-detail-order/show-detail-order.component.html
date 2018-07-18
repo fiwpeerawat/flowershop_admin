@@ -1,0 +1,205 @@
+<div>
+  <div class="my-container" *ngIf="orderDetail">
+
+    <div class="header-page">
+      รายละเอียดรายการสั่งซื้อ
+    </div>
+
+    <div class="body-page">
+      <div class="row">
+        <div class="col">
+          หมายเลขรายการสั่งซื้อ :
+        </div>
+        <div class="col">
+          {{orderDetail.Order_number}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          ชื่อลูกค้า :
+        </div>
+        <div class="col">
+          {{orderDetail.USERNAME}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          Email :
+        </div>
+        <div class="col">
+          {{orderDetail.EMAIL}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          จำนวนเงิน
+        </div>
+        <div class="col">
+          {{orderDetail.BillPRICE}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          วันที่รับสินค้า :
+        </div>
+        <div class="col">
+          {{orderDetail.DATE}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          เวลา :
+        </div>
+        <div class="col">
+          {{orderDetail.TIME}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          สถานที่รับสินค้า :
+        </div>
+        <div class="col">
+          {{orderDetail.Address}}
+        </div>
+      </div>
+      <div *ngIf="orderDetail.Approve == 1" class="row" style="margin-bottom: 10px;">
+        <div class="col">
+          สถานะการชำระเงิน :
+        </div>
+        <div class="col">
+          <span class="not-approve-order-2" (click)='change_state_approve()'> รออนุมัติ</span>
+        </div>
+      </div>
+      <div *ngIf="orderDetail.Approve == 2" class="row" style="margin-bottom: 10px;">
+        <div class="col">
+          สถานะการชำระเงิน :
+        </div>
+        <div class="col">
+          <span class="approve-order" (click)='change_state_approve()'> อนุมัติแล้ว</span>
+        </div>
+      </div>
+      <div *ngIf="orderDetail.Approve == 0" class="row" style="margin-bottom: 10px;">
+        <div class="col">
+          สถานะการชำระเงิน :
+        </div>
+        <div class="col">
+          <span class="not-approve-order-1"> ยังไม่ชำระเงิน </span>
+        </div>
+      </div>
+
+
+      <div class="row-img-down" *ngIf="orderDetail.Approve != 0" (click)='showPaymentDeatil()'>
+        <img src="../../../assets/img/down-arrow.png" class="icon-down">
+      </div>
+
+      <div style="margin-bottom: 20px;" *ngIf="paymentDeatil != '' ">
+        <div class="row">
+          <div class="col">
+            หมายเลขโทรศัพท์ :
+          </div>
+          <div class="col">
+            {{paymentDeatil[0].TEL}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            ธนาคาร :
+          </div>
+          <div class="col">
+            {{paymentDeatil[0].BANK}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            จำนวนเงิน :
+          </div>
+          <div class="col">
+            {{paymentDeatil[0].PAY_PRICE}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            วันที่ชำระเงิน :
+          </div>
+          <div class="col">
+            {{paymentDeatil[0].DATE_TO_PAY}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            เวลาที่ชำระเงิน :
+          </div>
+          <div class="col">
+            {{paymentDeatil[0].TIME}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            หมายเหตุ :
+          </div>
+          <div class="col">
+            {{paymentDeatil[0].NOTE}}
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
+          <div class="col" style="text-align: center;">
+            <div style="margin-bottom: 10px;">
+              <span>ภาพหลักฐานการชำละเงิน</span>
+            </div>
+            <div>
+              <img style="max-width: 500px;" src={{paymentDeatil[0].PAY_IMG}}
+                class="img-fluid" alt="Responsive image">
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+
+
+
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col" style="text-align: center">
+          รายการสินค้าที่สั่งซื้อ
+        </div>
+      </div>
+      <div class="row row-order" *ngFor="let product of orderProduct;let i = index" (click)='gotoLink(i)'>
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-5 my-col-sm-5" style="text-align: center">
+          <img src={{product.URL}} class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-7 my-col-sm-7">
+          <span style="color: red;">รหัสสินค้า :</span> {{product.PID}}
+          <br>
+          <span style="color: red;">ชื่อสินค้า :</span> {{product.NAME}}
+          <br>
+          <span style="color: red;">ราคาสินค้า : </span> {{product.PRICE}}
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+  </div>
+</div>

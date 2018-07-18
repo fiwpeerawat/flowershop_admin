@@ -1,0 +1,114 @@
+nav{
+    box-shadow: 0px 0px 15px 2px  rgb(82, 82, 82);
+    background-color: rgb(63  , 81, 181);
+}
+.sidenav-container{
+    background-color: rgba(0, 0, 0, 0);    
+    width: 0%;
+    height: 100%;
+    z-index: 1;
+    position: fixed;
+    transition:  background-color 0.5s;
+    transition:  margin-left  0.5s;
+ }
+.sidenav {
+    box-shadow: 0px 0px 15px 2px  rgb(82, 82, 82);
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(19, 19, 19);
+    overflow-x: hidden;
+    padding-top: 76px;
+    transition: width 0.5s;
+    
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-top: 52px;
+    margin-left: 250px;   
+    transition: margin-left 0.5s;
+}
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+.sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    min-height: 50px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 250px;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+.sidenav a{
+    font-size: 16px;
+}
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+}
+/* Add an active class to the active dropdown button */
+.active {
+    background-color: rgb(72, 76, 85);
+    color: white;
+}
+
+.fa-caret-down {
+    float: right;
+    padding-top: 7px;
+    padding-right: 8px;
+
+   
+}
+.dropdown-container {
+   display: none;
+    background-color: #262626;
+    padding-left: 8px;  
+}
+.dropdownactive {
+   display: block;    
+}
+
+
+
+
+
+
+@media (max-width: 992px) {
+    .sidenav{
+        width: 0px;
+        box-shadow: 0 0 0 0 ;
+    }
+    .main {
+        margin-left: 0px;         
+    } 
+}
+@media  (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+

@@ -1,0 +1,62 @@
+.header{
+    background-color: rgb(63, 81, 181);
+    height: 200px;    
+}
+.header-title{
+    color: white;
+    font-size: 22px;
+}
+.header-container{
+    max-width: 900px;
+    padding-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+}
+.body-page{ 
+    max-width: 900px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;     
+    box-shadow: 0 0 5px 0px rgb(182, 182, 182);
+    padding: 20px;
+}
+.header-body{
+    background-color: rgb(63, 81, 181);  
+    height: 200px;
+    top: 245px;
+    position: absolute;
+    z-index: -1;
+}
+.my-container{
+    padding: 0px 30px 30px 30px;
+}
+.serach-bar{
+    height: 36px;
+    border-style: none none solid;
+    border-width: 1px;
+    padding-bottom: 5px;
+    border-color:  rgb(182, 182, 182);
+}
+.serach-input{
+    min-height: 30px;
+    width: 80%;
+    border: none;
+    outline: none;
+
+}
+
+@media (max-width : 600px){
+    .my-container{
+        padding: 0px 10px 30px 10px;
+    }
+}
+@media (max-width : 380px){
+    .mycol-12 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+   
+}

@@ -1,0 +1,36 @@
+<div class="container-flud">
+  <div class="my-container">
+
+    <div class="header-page">
+      เพิ่ม/ลบกลุ่มสินค้า
+    </div>
+
+    <div class="body-page">
+
+      <div class="form-group">
+        <label for="addProduct">เพิ่มกลุ่มสินค้า</label>
+        <input #addProductID type="text" class="form-control" id="addProduct" placeholder="เพิ่มกลุ่มสินค้า">
+      </div>
+
+      <div class="button-add-remove">
+        <button type="button" class="btn btn-secondary" (click)='addGroup()'>เพิ่มกลุ่มสินค้า</button>
+      </div>
+      <div class="form-group">
+        <label for="removeProduct">ลบกลุ่มสินค้า</label>
+        <select #removeProductID class="form-control" id="removeProduct">
+          <option *ngFor="let group of groupList"> {{group.NAME}} </option>
+          
+        </select>
+      </div>
+      <div class="button-add-remove">
+        <button type="button" class="btn btn-secondary" (click)='removeGroup()'>ลบกลุ่มสินค้า</button>
+      </div>
+    </div>
+
+
+
+
+
+
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div >
+  <div class="my-container">
+
+    <div class="header-page">
+      ลบสินค้า
+    </div>
+
+    <div class="body-page">
+      <div class="howto">*ใส่อย่างน้อย 1 รายการเพื่อทำการค้นหา</div>     
+
+        <div class="form-group">
+          <label for="productID">รหัสสินค้า</label>
+          <input type="text" class="form-control" [(ngModel)]="productID" id="productID" placeholder="ใส่รหัสสินค้า">
+        </div>
+
+        <div class="form-group">
+          <label for="productName">ชื่อสินค้า</label>
+          <input type="text" class="form-control" [(ngModel)]="productName" id="productName" placeholder="ใส่ชื่อสินค้า">
+        </div>
+
+        <div class="form-group">
+          <label for="productGroup">กลุ่มสินค้า</label>
+          <select class="form-control" [(ngModel)]="productGroup" id="productGroup">
+              <option ></option> 
+            <option *ngFor="let group of groupList">{{group.NAME}}</option>            
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="productdate">วันที่เพิ่มสินค้า</label>
+          <input class="form-control" type="date"  [(ngModel)]="productdate" id="productdate">
+        </div>
+
+
+
+
+        <div class="button-search">
+          <button type="button" style="width: 100px;" (click)="searchClick()" class="btn btn-secondary">ค้นหา</button>
+        </div>
+
+        <div class="row " style="margin-top: 30px;">
+          <div *ngFor="let item of allProduct;let i=index" class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 mycol-12" style="padding: 0px;"
+            >
+            <app-product-item [remove]='true' [obj]="item" (indexRemove)="clickItem($event)" ></app-product-item>
+          </div>
+
+        </div>
+
+    </div>
+  </div>
+</div>

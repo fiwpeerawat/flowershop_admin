@@ -1,0 +1,15 @@
+<div class="card cover-item"    > 
+  <div (click)='gotoLink()' >
+  <img class="card-img-top" src={{obj.URL}}> 
+  <div class="card-body">
+    <h5 class="card-title ">{{obj.NAME}}</h5>
+    <p class="card-text short-detail-product" style="font-size:12px;"> {{obj.DETAIL}}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{obj.PRICE}}</li>
+  </ul>
+  </div>
+  <div *ngIf="remove"  class="card-body" style="text-align: center;">
+    <button type="button" class="btn my-btn" (click)='removeClick()'>REMOVE</button>
+  </div>
+</div>

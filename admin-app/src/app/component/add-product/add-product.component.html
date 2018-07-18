@@ -1,0 +1,102 @@
+<div class="container-flud">
+  <div class="my-container">
+
+    <div class="header-page">
+      เพิ่มสินค้า
+    </div>
+
+    <div class="body-page">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 ">
+
+          <div class="form-group">
+            <label for="Title">ชื่อสินค้า</label>
+            <input [(ngModel)]="nameProduct" type="text" class="form-control" id="Title" placeholder="ใส่ชื่อสินค้า">
+          </div>
+          <div class="form-group">
+            <label for="detail">รายละเอียดสินค้า</label>
+            <textarea [(ngModel)]="detailProduct" class="form-control" rows="5" id="detail" placeholder="ใส่รายละเอียดสินค้า"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="price">ราคาสินค้า</label>
+            <input [(ngModel)]="priceProduct" type="text" class="form-control" id="price" placeholder="ใส่ราคาสินค้า">
+          </div>
+
+          <div class="form-group">
+            <label for="groupProduct">กลุ่มสินค้า</label>
+            <select [(ngModel)]="groupProduct" class="form-control" id="groupProduct">
+              <option *ngFor='let group of groupList'> {{group.NAME}} </option>
+              
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="imageproduct">ภาพสินค้า</label>
+            <input type="file" class="form-control-file" #imgFile style="margin-bottom: 10px;" id="imageproduct">
+            <button type="button" class="btn btn-secondary" (click)='addImg()'>เพิ่มรูปภาพ</button>
+          </div>
+
+          <button type="button" class="btn btn-primary" style="width: 100%;" data-toggle="modal" data-target="#ModalCenter">
+            เพิ่มสินค้า
+          </button>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6">
+          ภาพสินค้า
+
+          <div *ngFor=" let img of imgFilestruc; let i = index" class="img-show">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" style="margin-right: 5px;" #checkbox (click)="checkboxClick(i)">เลือกภาพหลัก</label>
+            </div>
+            <img #imgshow src={{img}} class="img-fluid" alt="Responsive image">
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenter" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">ตรวจสอบ</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+             <span style="color: red"> ชื่อสินค้า :</span> {{nameProduct}}
+            </div>
+            <div class="show-detail">
+                <span style="color: red"> รายละเอียดสินค้า : </span> {{detailProduct}}
+            </div>
+            <div class="show-detail">
+                <span style="color: red"> ราคาสินค้า : </span> {{priceProduct}}
+            </div>
+            <div>
+                <span style="color: red"> กลุ่มสินค้า : </span> {{groupProduct}}
+            </div>
+            <div class="show-detail">
+                <span style="color: red"> ภาพหลักสินค้า : </span> 
+                <img src={{imgFilestruc[select_imh_Imag]}} class="img-fluid" alt="Responsive image">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+            <button type="button" class="btn btn-primary" style="width: 100px;"  (click)='confirmAddProduct()' >ยืนยัน</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>

@@ -1,0 +1,54 @@
+.my-container{
+    padding: 20px 30px 20px 30px;
+}
+.header-page{
+    font-size: 22px;
+    padding-bottom: 10px;
+    border-width: 1px;
+    border-color: rgb(180, 180, 180);
+    border-bottom-style: solid; 
+}
+.body-page{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 10px;     
+    box-shadow: 0 0 5px 0px rgb(182, 182, 182);
+    padding: 20px;
+}
+.serach-bar{
+    height: 36px;
+    border-style: none none solid;
+    border-width: 1px;
+    padding-bottom: 5px;
+    border-color:  rgb(182, 182, 182);;
+}
+.serach-input{
+    min-height: 30px;
+    width: 80%;
+    border: none;
+    outline: none;
+
+}
+td{
+    word-wrap:break-word;
+}
+tr:hover{
+    background-color: rgb(245, 245, 245)
+}
+
+@media (max-width : 600px){
+    .my-container{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width : 380px){
+    .body-page{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+} 
